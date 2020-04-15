@@ -56,7 +56,10 @@
 									<List 
 										id="productsList" 
 										items="{ 
-											path : '/ProductSet', 
+											path : '/ProductSet',
+											parameters : {
+												expand: 'ToSupplier'
+											},
 											sorter : { 
 												path : 'Category', group : true 
 												} 
@@ -84,6 +87,12 @@
 												<firstStatus>
 													<ObjectStatus text="{ parts: [ {path: 'WeightUnit'}, {path: 'WeightMeasure'} ], formatter : '.formatter.delivery' }"/>
 												</firstStatus>
+												<secondStatus>
+													<ObjectStatus
+														title="{i18n>statusDeliveryFrom}"
+														text="{ToSupplier/Address/City}"/>
+												</secondStatus>
+
 											</ObjectListItem>
 										</items>
 									</List>
